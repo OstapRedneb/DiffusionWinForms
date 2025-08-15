@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SimulationForm));
             resetButton = new Button();
             showLabel = new Label();
             hScrollBar1 = new HScrollBar();
+            timer = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // resetButton
@@ -45,7 +47,7 @@
             resetButton.TabIndex = 0;
             resetButton.Text = "Сбросить";
             resetButton.UseVisualStyleBackColor = false;
-            resetButton.Click += this.resetButton_Click;
+            resetButton.Click += resetButton_Click;
             // 
             // showLabel
             // 
@@ -66,13 +68,13 @@
             hScrollBar1.Name = "hScrollBar1";
             hScrollBar1.Size = new Size(184, 17);
             hScrollBar1.TabIndex = 2;
-            hScrollBar1.Scroll += this.hScrollBar1_Scroll;
+            hScrollBar1.Scroll += hScrollBar1_Scroll;
             // 
             // SimulationForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackColor = Color.FromArgb(255, 224, 192);
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
             Controls.Add(hScrollBar1);
@@ -80,7 +82,7 @@
             Controls.Add(resetButton);
             Name = "SimulationForm";
             Text = "Симуляция дифузии";
-            Load += this.SimulationForm_Load;
+            Load += SimulationForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -90,5 +92,6 @@
         private Button resetButton;
         private Label showLabel;
         private HScrollBar hScrollBar1;
+        private System.Windows.Forms.Timer timer;
     }
 }
